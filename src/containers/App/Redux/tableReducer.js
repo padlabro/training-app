@@ -1,14 +1,16 @@
-import { handleActions } from "redux-actions";
+import { handleActions } from 'redux-actions';
 import {
   fetchTrainingsRequest,
   fetchTrainingsSuccess,
-  fetchTrainingsFailure,
+  fetchDeleteTrainingRequest,
+  fetchSaveTrainingRequest,
+  fetchAddTrainingRequest,
   filterTrainings,
   sortTrainings,
-  deleteTraining,
   editTraining,
-  newTraining
-} from "./actions";
+  newTraining,
+  fetchFailure
+} from './actions';
 
 const defaultState = {
   initialData: [],
@@ -36,11 +38,28 @@ export default handleActions(
         error: null
       };
     },
-    [fetchTrainingsFailure](state, { payload }) {
+    [fetchDeleteTrainingRequest](state) {
       return {
         ...state,
-        isFetching: false,
-        error: payload
+        isFetching: true
+      };
+    },
+    [fetchSaveTrainingRequest](state) {
+      return {
+        ...state,
+        isFetching: true
+      };
+    },
+    [fetchAddTrainingRequest](state) {
+      return {
+        ...state,
+        isFetching: true
+      };
+    },
+    [fetchFailure](state) {
+      return {
+        ...state,
+        isFetching: false
       };
     },
     [filterTrainings](state, { payload }) {
@@ -53,12 +72,6 @@ export default handleActions(
       return {
         ...state,
         data: payload
-      };
-    },
-    [deleteTraining](state, { payload }) {
-      return {
-        ...state,
-        data: state.data.filter((item, i) => i !== payload)
       };
     },
     [editTraining](state, { payload }) {
@@ -75,5 +88,6 @@ export default handleActions(
       };
     }
   },
+
   defaultState
 );

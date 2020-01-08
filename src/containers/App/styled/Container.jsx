@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const Container = styled.div`
   margin: 0 auto;
@@ -9,9 +9,9 @@ const Container = styled.div`
   grid-template-columns: 200px auto;
   grid-template-rows: 50px auto 300px;
   grid-template-areas:
-    "options sort"
-    "options table"
-    "options graph";
+    'options sort'
+    'options table'
+    'options graph';
 `;
 
 export default Container;

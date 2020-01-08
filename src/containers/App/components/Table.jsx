@@ -1,14 +1,15 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-import React from "react";
-import { Table } from "reactstrap";
-import { css } from "emotion";
-import Training from "./Training";
+import React from 'react';
+import { Table } from 'reactstrap';
+import { css } from 'emotion';
+import PropTypes from 'prop-types';
+import Training from './Training';
 
 const Main = props => {
+  const { trainings, deleteData, children } = props;
   return (
     <div
       className={css`
+        min-height: 140px;
         max-height: 500px;
         grid-area: table;
         overflow-y: auto;
@@ -30,16 +31,9 @@ const Main = props => {
           </tr>
         </thead>
         <tbody>
-          {props.trainings.length ? (
-            props.trainings.map((item, i) => {
-              return (
-                <Training
-                  i={i}
-                  key={item.id}
-                  data={item}
-                  deleteData={props.deleteData}
-                />
-              );
+          {trainings.length ? (
+            trainings.map((item, i) => {
+              return <Training id={i} key={item.id} data={item} deleteData={deleteData} />;
             })
           ) : (
             <tr>
@@ -50,8 +44,17 @@ const Main = props => {
           )}
         </tbody>
       </Table>
+      {children}
     </div>
   );
 };
 
+Main.propTypes = {
+  deleteData: PropTypes.func.isRequired,
+  trainings: PropTypes.array.isRequired,
+  children: PropTypes.object
+};
+Main.defaultProps = {
+  children: undefined
+};
 export default Main;

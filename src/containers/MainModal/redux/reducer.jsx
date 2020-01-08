@@ -1,11 +1,9 @@
-import { handleActions } from "redux-actions";
+import { handleActions } from 'redux-actions';
 
-import { showModalRequest, hideModalRequest, modalError } from "./actions";
+import { showModalRequest, hideModalRequest } from './actions';
 
 const defaultState = {
-  type: "",
   show: false,
-  modalProps: null,
   loading: false,
   error: null
 };
@@ -22,12 +20,6 @@ export default handleActions(
       return {
         ...state,
         show: false
-      };
-    },
-    [modalError](state, { payload }) {
-      return {
-        ...state,
-        ...payload
       };
     }
   },

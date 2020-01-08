@@ -1,17 +1,9 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-import React from "react";
-import {
-  Button,
-  FormGroup,
-  Label,
-  Input,
-  FormFeedback,
-  Form
-} from "reactstrap";
+import React from 'react';
+import { Button, FormGroup, Label, Input, FormFeedback, Form } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 const ModalForm = props => {
-  const { values, handleChange, handleSubmit, errors } = props;
+  const { values, handleChange, handleSubmit, errors, newTraining } = props;
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
@@ -65,10 +57,18 @@ const ModalForm = props => {
         <FormFeedback>{errors.comment}</FormFeedback>
       </FormGroup>
       <Button color="primary" type="submit">
-        {values.date ? "Save training" : "Add new training"}
+        {newTraining ? 'Add new training' : 'Save training'}
       </Button>
     </Form>
   );
+};
+
+ModalForm.propTypes = {
+  values: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  newTraining: PropTypes.bool.isRequired
 };
 
 export default ModalForm;

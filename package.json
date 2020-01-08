@@ -5,7 +5,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --mode development --open",
+		"start": "node server.js",
 		"dev": "webpack --mode development",
 		"build": "webpack --mode production",
 		"lint": "eslint src --cache --ext .js --color --format codeframe"
@@ -61,6 +61,7 @@
 		"react-icons": "^2.2.7",
 		"react-redux": "^7.1.3",
 		"react-router-dom": "^5.1.2",
+		"react-spinners": "^0.8.0",
 		"reactstrap": "^8.2.0",
 		"recharts": "^2.0.0-beta.1",
 		"redux": "^4.0.5",

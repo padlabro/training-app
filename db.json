@@ -2,8 +2,8 @@
   "trainings": [
     {
       "date": "2019-01-01",
-      "distance": 7,
-      "type": "Skiing",
+      "distance": 22,
+      "type": "Running",
       "comment": "",
       "id": 1
     },
@@ -15,39 +15,25 @@
       "id": 2
     },
     {
-      "date": "2018-01-01",
-      "distance": 10,
-      "type": "Running",
-      "comment": "",
-      "id": 3
-    },
-    {
-      "date": "2017-12-31",
-      "distance": 14,
-      "type": "Running",
-      "comment": "",
-      "id": 4
-    },
-    {
-      "date": "2017-01-01",
-      "distance": 10,
-      "type": "Running",
-      "comment": "",
-      "id": 6
-    },
-    {
       "date": "2016-12-31",
       "distance": 10,
       "type": "Running",
       "comment": "",
-      "id": 7
+      "id": 4
     },
     {
       "date": "2016-01-01",
       "distance": 10,
       "type": "Running",
       "comment": "",
-      "id": 8
+      "id": 5
+    },
+    {
+      "date": "2017-12-31",
+      "distance": 14,
+      "type": "Running",
+      "comment": "",
+      "id": 6
     },
     {
       "date": "2015-12-31",
@@ -79,7 +65,7 @@
     },
     {
       "date": "2013-12-31",
-      "distance": 10,
+      "distance": 14,
       "type": "Running",
       "comment": "",
       "id": 13
@@ -141,25 +127,46 @@
       "id": 21
     },
     {
-      "date": "2009-01-01",
-      "distance": 10,
-      "type": "Running",
-      "comment": "",
-      "id": 22
-    },
-    {
-      "date": "2019-12-29",
-      "distance": 4,
-      "type": "Running",
-      "comment": "",
-      "id": 23
-    },
-    {
       "date": "2019-01-07",
-      "distance": 10,
+      "distance": 121,
       "type": "Riding a bike",
       "comment": "",
       "id": 24
+    },
+    {
+      "date": "2020-01-07",
+      "distance": 27,
+      "type": "Skiing",
+      "comment": "",
+      "id": 25
+    },
+    {
+      "date": "2020-01-04",
+      "distance": 155,
+      "type": "Skiing",
+      "comment": "",
+      "id": 26
+    },
+    {
+      "date": "2020-01-01",
+      "distance": 34,
+      "type": "Skiing",
+      "comment": "",
+      "id": 29
+    },
+    {
+      "date": "2020-01-04",
+      "distance": 37,
+      "type": "Riding a bike",
+      "comment": "",
+      "id": 30
+    },
+    {
+      "date": "2020-01-02",
+      "distance": 36,
+      "type": "Riding a bike",
+      "comment": "",
+      "id": 31
     }
   ]
 }
