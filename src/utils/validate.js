@@ -5,7 +5,7 @@ export default ({ values, errors }) => {
       if (!value) {
         errors.distance = 'Required';
       }
-      if (values.distance >= 200) {
+      if (values.distance > 200) {
         errors.distance = 'More than 200km by day? Nah';
       }
       if (values.distance < 0) {

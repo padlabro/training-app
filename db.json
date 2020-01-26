@@ -2,7 +2,7 @@
   "trainings": [
     {
       "date": "2019-01-01",
-      "distance": 22,
+      "distance": 17,
       "type": "Running",
       "comment": "",
       "id": 1
@@ -134,15 +134,8 @@
       "id": 24
     },
     {
-      "date": "2020-01-07",
-      "distance": 27,
-      "type": "Skiing",
-      "comment": "",
-      "id": 25
-    },
-    {
       "date": "2020-01-04",
-      "distance": 155,
+      "distance": 154,
       "type": "Skiing",
       "comment": "",
       "id": 26
@@ -167,6 +160,13 @@
       "type": "Riding a bike",
       "comment": "",
       "id": 31
+    },
+    {
+      "date": "2020-01-26",
+      "distance": 123,
+      "type": "Skiing",
+      "comment": "324",
+      "id": 32
     }
   ]
 }

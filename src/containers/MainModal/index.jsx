@@ -12,10 +12,10 @@ const MainModal = props => {
     <div>
       <Modal isOpen={show} toggle={props.hideModal}>
         <ModalHeader toggle={props.hideModal}>
-          {id ? 'Edit training' : 'Add new training'}
+          {id !== null ? 'Edit training' : 'Add new training'}
         </ModalHeader>
         <ModalBody>
-          <ModalForm data={id ? data[id] : {}} />
+          <ModalForm data={id !== null ? data[id] : {}} />
         </ModalBody>
         <ModalFooter
           className={css`

@@ -1,5 +1,6 @@
 import { createAction } from 'redux-actions';
 import { showModalRequest, hideModalRequest } from '../../MainModal/redux/actions';
+import api from '../../../utils/api';
 
 export const filterTrainings = createAction('FILTER_TRAININGS');
 export const sortTrainings = createAction('SORT_TRAININGS');
@@ -13,9 +14,8 @@ export const fetchFailure = createAction('FETCH_FAILURE');
 export const fetchTrainings = () => async dispatch => {
   try {
     dispatch(fetchTrainingsRequest());
-    await fetch('http://localhost:3000/trainings')
-      .then(res => res.json())
-      .then(res => dispatch(fetchTrainingsSuccess(res)));
+    const responce = await api.getData();
+    await dispatch(fetchTrainingsSuccess(responce));
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -27,18 +27,15 @@ export const handleSortTrainings = data => async dispatch => {
   dispatch(sortTrainings(data));
 };
 
-export const fetchDeleteTrainingRequest = createAction('FETCH_DELETETRAINING_REQUEST');
-export const fetchDeleteTrainingSuccess = createAction('FETCH_DELETETRAINING_SUCCESS');
+export const fetchDeleteTrainingRequest = createAction('FETCH_DELETE_TRAINING_REQUEST');
+export const fetchDeleteTrainingSuccess = createAction('FETCH_DELETE_TRAINING_SUCCESS');
 
 export const handleDeleteTraining = id => async dispatch => {
   dispatch(fetchDeleteTrainingRequest());
   try {
-    await fetch(`http://localhost:3000/trainings/${id}`, {
-      method: 'DELETE'
-    });
-    await fetch('http://localhost:3000/trainings')
-      .then(res => res.json())
-      .then(res => dispatch(fetchTrainingsSuccess(res)));
+    await api.deleteData(id);
+    const responce = await api.getData();
+    dispatch(fetchTrainingsSuccess(responce));
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -54,18 +51,10 @@ export const fetchSaveTrainingSuccess = createAction('FETCH_SAVE_TRAINING_SUCCES
 export const handleSaveTraining = data => async dispatch => {
   dispatch(fetchSaveTrainingRequest());
   try {
-    await fetch(`http://localhost:3000/trainings/${data.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      },
-      credentials: 'same-origin',
-      body: JSON.stringify(data)
-    });
+    await api.editData(data);
     await dispatch(hideModalRequest());
-    await fetch('http://localhost:3000/trainings')
-      .then(res => res.json())
-      .then(res => dispatch(fetchTrainingsSuccess(res)));
+    const responce = await api.getData();
+    dispatch(fetchTrainingsSuccess(responce));
   } catch (error) {
     dispatch(fetchFailure(error));
   }
@@ -84,18 +73,10 @@ export const fetchAddTrainingSuccess = createAction('FETCH_ADD_TRAINING_SUCCESS'
 export const handleAddTraining = data => async dispatch => {
   dispatch(fetchAddTrainingRequest());
   try {
-    await fetch(`http://localhost:3000/trainings/`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      },
-      credentials: 'same-origin',
-      body: JSON.stringify(data)
-    });
+    await api.postData(data);
     await dispatch(hideModalRequest());
-    await fetch('http://localhost:3000/trainings')
-      .then(res => res.json())
-      .then(res => dispatch(fetchTrainingsSuccess(res)));
+    const responce = await api.getData();
+    dispatch(fetchTrainingsSuccess(responce));
   } catch (error) {
     dispatch(fetchFailure(error));
   }
