@@ -30,6 +30,7 @@ class App extends Component {
     await this.props.fetchTrainings();
     this.sortData();
   }
+  // check
 
   componentDidUpdate(nextProps) {
     const { data, edit, addedNewTraining } = this.props;
