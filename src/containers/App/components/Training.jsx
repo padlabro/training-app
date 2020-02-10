@@ -29,7 +29,6 @@ const Training = props => {
           size={24}
           className={css`
             margin-right: 20px;
-            cursor: pointer;
           `}
           onClick={editTraining}
         />
